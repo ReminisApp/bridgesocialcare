@@ -1,0 +1,5 @@
+sanic==19.6.0
+openai==0.28.1
+PyPDF2
+pillow
+tiktoken==0.5.1

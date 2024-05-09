@@ -1,0 +1,5 @@
+sanic
+openai==0.28.1
+PyPDF2
+pillow
+tiktoken==0.5.1
