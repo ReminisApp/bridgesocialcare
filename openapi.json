@@ -1,0 +1,144 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Troubleshooting Data API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/extract_troubleshoot": {
+      "get": {
+        "summary": "Retrieve troubleshooting data from a public PDF URL",
+        "operationId": "retrieveTroubleshootingFromUrl",
+        "parameters": [
+          {
+            "name": "publicPdfUrl",
+            "in": "query",
+            "description": "URL to a publicly accessible PDF containing troubleshooting data",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved and processed the troubleshooting data from the URL",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TroubleshootingResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Upload a PDF file containing troubleshooting data",
+        "operationId": "uploadTroubleshootingFile",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "PDF file containing troubleshooting data"
+                  }
+                },
+                "required": [
+                  "file"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully uploaded and processed the troubleshooting data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TroubleshootingResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "TroubleshootingResponse": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "array",
+            "description": "An array of troubleshooting objects grouped by page number",
+            "items": {
+              "$ref": "#/components/schemas/TroubleshootingPage"
+            }
+          }
+        }
+      },
+      "TroubleshootingPage": {
+        "type": "object",
+        "properties": {
+          "page_num": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Page number associated with the troubleshooting objects"
+          },
+          "troubleshooting_objects_array": {
+            "type": "array",
+            "description": "Array of troubleshooting objects related to the page",
+            "items": {
+              "$ref": "#/components/schemas/TroubleshootingObject"
+            }
+          }
+        }
+      },
+      "TroubleshootingObject": {
+        "type": "object",
+        "properties": {
+          "conditionOrProblem": {
+            "type": "string",
+            "description": "Description of the problem encountered"
+          },
+          "possibleCauseOrThingsToCheck": {
+            "type": "string",
+            "description": "Possible cause or items to check that may relate to the problem"
+          },
+          "proposedSolution": {
+            "type": "string",
+            "description": "Suggested solution to the identified problem"
+          },
+          "pageNumberShownToHuman": {
+            "type": "string",
+            "description": "Page number as displayed to the user, if relevant"
+          },
+          "primaryId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "A unique identifier for the troubleshooting instance"
+          },
+          "troubleshootinggroupManualID": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Identifier of the group to which the troubleshooting instance belongs"
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://bridgesocialcare.vercel.app"
+    }
+  ]
+}
