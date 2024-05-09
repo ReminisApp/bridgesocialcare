@@ -1,6 +1,6 @@
 #For Vercel it's mandatory to keep this in api folder
 from sanic import Sanic
-from sanic.response import text, json as sanic_json
+from sanic.response import redirect, text, json as sanic_json
 import json
 import os
 import openai
