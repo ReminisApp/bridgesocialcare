@@ -1,5 +1,5 @@
 from sanic import Sanic
-from sanic.response import text, json as sanic_json
+from sanic.response import redirect, text, json as sanic_json
 import json
 import os
 import openai
@@ -14,10 +14,14 @@ if __name__ == '__main__':
 
 @app.route("/", methods=["GET", "OPTIONS", 'HEAD'])
 async def healthcheck(request):
-    return sanic_json({"status": "healthy", "instruction": "Use 'file' multipart form key to send a local file, it should be lower than 4.5M alternatively you can use a public pdf url (i.e. presigned s3 URL )"})
+    redirect_url = request.args.get("deployment-url", "")
+    if redirect_url == "":
+        return sanic_json({"status": "healthy", "instruction": "Use 'file' multipart form key to send a local file, it should be lower than 4.5M alternatively you can use a public pdf url (i.e. presigned s3 URL )"})
+    else:
+        return redirect(redirect_url+"/extract_troubleshoot?publicPdfUrl=https%3A%2F%2Fawss3stack-publickeymatelastda50481a-11bcwu2nql1c1.s3.us-east-1.amazonaws.com%2F669e1ebd-646e-4053-a138-c0fc02bc87c9")
 
 
-@app.route("/extract_troubleshoot", methods=['GET',"OPTIONS", 'HEAD'])
+@app.route("/extract_troubleshoot", methods=['GET',"OPTIONS", 'HEAD', 'POST'])
 async def extract_troubleshoot(request):
     file = request.files.get('file')
 
