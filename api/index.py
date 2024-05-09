@@ -21,7 +21,7 @@ async def healthcheck(request):
 
 
 
-@app.route("/extract_troubleshoot", methods=['GET',"OPTIONS", 'HEAD'])
+@app.route("/extract_troubleshoot", methods=['GET',"OPTIONS", 'HEAD', 'POST'])
 async def extract_troubleshoot(request):
     file = request.files.get('file')
 
