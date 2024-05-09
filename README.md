@@ -4,10 +4,15 @@ This project requires setting the `OPENAI_API_KEY` environment variable during d
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FReminisApp%2Fbridgesocialcare&env=OPENAI_API_KEY&envDescription=OPENAI%20API%20KEY%20IS%20NEEDED%20FOR%20THIS%20TO%20WORK&envLink=https%3A%2F%2Fplatform.openai.com%2Fapi-keys&project-name=bridgesocialcare&repository-name=bridgesocialcare&redirect-url=https%3A%2F%2Fbridgesocialcare.vercel.app%2F&developer-id=oac_nLNk6tqXGabCqC9Fr6jGO4Dj&production-deploy-hook=Troubleshoot%20PDF%20Deploy&demo-title=Try%20yourself%20at%20bridgesocialcare.vercel.app&demo-description=GPT-4-V%20based%20troubleshooting%20pdfs&demo-url=https%3A%2F%2Fbridgesocialcare.vercel.app&demo-image=https%3A%2F%2Fserver.searchweb.keymate.ai%2F.well-known%2Ficon.png&skippable-integrations=1)
 
+Please see my loom video here while I'm deploying to a new Vercel Pro account:
+[LOOM VIDEO](https://www.loom.com/share/944a473f9afb444c81569b269c25c22c?sid=0a2d18cf-ed30-4baa-997b-caf0de60494d)
+
+
+
 ### Post-Deployment Overview
 
 After deploying to a Vercel Pro account (credentials provided via email), you will be redirected to an execution of the built endpoint. This will utilise a 9-page fan manual PDF to extract and return troubleshooting table data.
-Basically it will redirect you to [https://[NEWDEPLOYMENT].vercel.app/extract_troubleshoot?publicPdfUrl=https%3A%2F%2Fawss3stack-publickeymatelastda50481a-11bcwu2nql1c1.s3.us-east-1.amazonaws.com%2Fda763fb9-d4b2-4950-b55a-53695917fcc0]([https://aws-s3-image-upload-last-beta.vercel.app/](https://[NEWDEPLOYMENT].vercel.app/extract_troubleshoot?publicPdfUrl=https%3A%2F%2Fawss3stack-publickeymatelastda50481a-11bcwu2nql1c1.s3.us-east-1.amazonaws.com%2Fda763fb9-d4b2-4950-b55a-53695917fcc0))  in the browser
+Basically it will redirect you to [https://[NEWDEPLOYMENT].vercel.app/extract_troubleshoot?publicPdfUrl=https%3A%2F%2Fawss3stack-publickeymatelastda50481a-11bcwu2nql1c1.s3.us-east-1.amazonaws.com%2Fda763fb9-d4b2-4950-b55a-53695917fcc0]([[https://aws-s3-image-upload-last-beta.vercel.app/](https://[NEWDEPLOYMENT].vercel.app/extract_troubleshoot?publicPdfUrl=https%3A%2F%2Fawss3stack-publickeymatelastda50481a-11bcwu2nql1c1.s3.us-east-1.amazonaws.com%2Fda763fb9-d4b2-4950-b55a-53695917fcc0)] in the browser
 
 
 
