@@ -35,7 +35,7 @@ For more details on handling large requests in serverless functions on Vercel, s
 I created openapi.json. I always keep it updated because, as a fast-growing startup, I learned to use Speakeasy ( Generate SDKs from openapi.json ). It's standard, so it's good to have it. I tried to create modular code.
 
 ### Local development 
-The local development solution resides at localindex.py. I used pyenv 3.11.3 to run it locally. You can install packages with pip install -r requirements-local.txt
+The local development solution resides at localindex.py. I used pyenv 3.11.3 to run it locally. You can install packages with pip install -r requirements-local.txt and run python localindex.py afterwards it uses 8000 port by default.
 
 ### Browser testing 
 8. These are the browser testing get parameter test URLs you can try on any browser:
