@@ -1,6 +1,6 @@
 #For Vercel it's mandatory to keep this in api folder
 from sanic import Sanic
-from sanic.response import text, json as sanic_json
+from sanic.response import redirect, text, json as sanic_json
 import json
 import os
 import openai
@@ -21,7 +21,7 @@ async def healthcheck(request):
 
 
 
-@app.route("/extract_troubleshoot", methods=['GET',"OPTIONS", 'HEAD'])
+@app.route("/extract_troubleshoot", methods=['GET',"OPTIONS", 'HEAD', 'POST'])
 async def extract_troubleshoot(request):
     file = request.files.get('file')
 
